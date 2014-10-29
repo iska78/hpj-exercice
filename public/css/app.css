@@ -1,0 +1,13 @@
+.content {
+    margin: 2rem auto 0;
+    max-width: 690px;
+}
+#tb_main > div > a {
+    position: relative;
+    height: 100%;
+    display: inline-block;
+}
+.centered {
+    float: none;
+    margin: 0 auto;
+}

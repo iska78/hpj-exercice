@@ -1,0 +1,57 @@
+<!-- application/layouts/scripts/layout.phtml -->
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>HPJ Test User</title>
+  <?php 
+		/*
+			Here we place all ours css name file wiches we need
+		*/
+		$css = array(
+				'_bootstrap',
+				'app',
+				'app768',
+				'jquery-ui.min',
+				'validationEngine.jquery'
+			);
+		foreach($css as $v){
+			$this->headLink()->appendStylesheet('/css/'.$v.'.css');
+		}
+		echo $this->headLink();
+		
+		/*
+			Here we place all ours js name file wiches we need
+		*/
+		$js = array(
+				'jquery-1.10.2',
+				'jquery-ui.min',
+				'jquery.validationEngine',
+				'jquery.validationEngine-en'
+			);
+		foreach($js as $v){
+			$this->headScript()->appendFile('/js/'.$v.'.js','text/javascript');
+		}
+		echo $this->headScript();		
+  ?>
+</head>
+<body>
+	<div id="content" class="bs-docs-header">
+		<div class="container">
+			<h1 class='col-xs-12 col-sm-4'>
+				<a href="<?php echo $this->url(array('controller'=>''),'default',true) ?>">Home</a>
+			</h1>
+			<!--
+				Our content will be charged here
+			-->
+			<?=$this->layout()->content?>
+		</div>
+    </div>
+	
+	<!--
+		Temporary User Alert Notifier
+	-->
+	<?php if(isset($this->layout()->alert)) echo "<script>alert('{$this->layout()->alert}')</script>"; ?>
+	
+</body>
+</html>

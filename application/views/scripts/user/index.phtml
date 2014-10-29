@@ -1,0 +1,22 @@
+<div class="panel pull-left">
+	<div class='panel-heading'>
+		<h3>Create New User</h3>
+	</div>
+	<div class='panel-body col-xs-12 col-sm-5 no-padding'>
+		<?=$this->form?>
+	</div>
+</div>
+<script>
+	$(function(){
+		$("#formSign")
+			.validationEngine({autoHidePrompt:true,autoHideDelay:3000})
+			.on("submit",function(event){
+				//We check if all field is correct before let user save
+				if (!$(this).validationEngine('validate'))
+				{
+					event.preventDefault();
+				}
+			})
+			.find("#bdate").datepicker();
+	})
+</script>
